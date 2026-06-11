@@ -1,10 +1,10 @@
 #include <iostream>
 
-class Polynomial; // 前向宣告
+class Polynomial_sparse; // 前向宣告
 
 // 代表多項式中的每一個非零項
 class Term {
-    friend class Polynomial;
+    friend class Polynomial_sparse;
 private:
     float coef; // 係數 (Coefficient)
     int exp;    // 指數 (Exponent)
@@ -15,7 +15,7 @@ public:
 };
 
 // 代表整個多項式
-class Polynomial {
+class Polynomial_sparse {
 private:
     Term* first; // 指向多項式第一項的指標
     int size; // size of terms
@@ -25,6 +25,6 @@ public:
 
     // 常用核心功能
     void AddTerm(float coef, int exp);  // 新增非零項（保持指數由大到小排序）
-    void PolyAdd(const Polynomial& b);  // 多項式相加
+    void PolyAdd(const Polynomial_sparse& b);  // 多項式相加
     void Display() const;               // 顯示多項式
 };
