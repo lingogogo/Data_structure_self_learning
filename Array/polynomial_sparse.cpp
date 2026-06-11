@@ -1,7 +1,7 @@
-# include "Sparse_polynomial"
+# include "polynomial_sparse.h"
 
 // 解構子實作（已在前面提供，放在這裡統一管理）
-Polynomial::~Polynomial() {
+Polynomial_sparse::~Polynomial_sparse() {
     Term* current = first;
     while (current != nullptr) {
         Term* nextTerm = current->next;
@@ -11,7 +11,7 @@ Polynomial::~Polynomial() {
 }
 
 // 1. 新增非零項（必須保持指數由大到小排序）
-void Polynomial::AddTerm(float coef, int exp) {
+void Polynomial_sparse::AddTerm(float coef, int exp) {
     if (coef == 0.0) return; // 稀疏多項式不儲存係數為 0 的項
 
     Term* newTerm = new Term(coef, exp);
@@ -54,7 +54,7 @@ void Polynomial::AddTerm(float coef, int exp) {
 }
 
 // 2. 顯示多項式
-void Polynomial::Display() const {
+void Polynomial_sparse::Display() const {
     if (first == nullptr) {
         std::cout << "0" << std::endl;
         return;
@@ -67,4 +67,9 @@ void Polynomial::Display() const {
         // 註：此處為簡版顯示邏輯，未處理正負號與常數項微調
     }
     std::cout << std::endl;
+}
+
+ Polynomial_sparse::PolyAdd(const Polynomial_sparse& b)
+{
+    
 }
