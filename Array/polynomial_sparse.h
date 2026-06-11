@@ -16,6 +16,7 @@ public:
 
 // 代表整個多項式
 class Polynomial_sparse {
+    friend Polynomial_sparse newPolyAdd(const Polynomial_sparse& a, const Polynomial_sparse& b);
 private:
     Term* first; // 指向多項式第一項的指標
     int size; // size of terms
