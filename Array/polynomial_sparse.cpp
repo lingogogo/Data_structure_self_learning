@@ -69,7 +69,15 @@ void Polynomial_sparse::Display() const {
     std::cout << std::endl;
 }
 
- Polynomial_sparse::PolyAdd(const Polynomial_sparse& b)
-{
-    
+void Polynomial_sparse::PolyAdd(const Polynomial_sparse& b) {
+    // 取得 b 的第一個節點指標
+    Term* b_curr = b.first;
+    // 走訪多項式 b 的所有項
+    while (b_curr != nullptr) {
+        // 利用既有的 AddTerm 函式，將 b 的每一項加到目前的物件 (this) 中
+        // AddTerm 內部已經處理好：指數排序、同指數相加、係數為 0 刪除節點等所有防呆邏輯
+        this->AddTerm(b_curr->coef, b_curr->exp);
+        // 移動到 b 的下一項
+        b_curr = b_curr->next;
+    }
 }
