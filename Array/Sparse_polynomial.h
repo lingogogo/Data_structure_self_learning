@@ -8,17 +8,17 @@ class Term {
 private:
     float coef; // 係數 (Coefficient)
     int exp;    // 指數 (Exponent)
-    Term* link; // 指向下一項的指標
+    Term* next; // 指向下一項的指標
 
 public:
-    Term(float c = 0.0, int e = 0) : coef(c), exp(e), link(nullptr) {}
+    Term(float c = 0.0, int e = 0) : coef(c), exp(e), next(nullptr) {}
 };
 
 // 代表整個多項式
 class Polynomial {
 private:
     Term* first; // 指向多項式第一項的指標
-
+    int size; // size of terms
 public:
     Polynomial() : first(nullptr) {}
     ~Polynomial();
