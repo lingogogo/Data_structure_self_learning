@@ -20,7 +20,7 @@ private:
     Term* first; // 指向多項式第一項的指標
     int size; // size of terms
 public:
-    Polynomial_sparse() : first(nullptr) {}
+    Polynomial_sparse() : first(nullptr), size(0) {} // 也可以改成 Term* first = nullptr; int size = 0;
     ~Polynomial_sparse();
 
     // 常用核心功能
