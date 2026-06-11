@@ -81,3 +81,24 @@ void Polynomial_sparse::PolyAdd(const Polynomial_sparse& b) {
         b_curr = b_curr->next;
     }
 }
+
+// friend function
+Polynomial_sparse newPolyAdd(const Polynomial_sparse& a, const Polynomial_sparse& b) {
+    Polynomial_sparse result; // 建立一個全新的多項式物件
+
+    // 1. 複製並加入 a 的所有項
+    Term* curr_a = a.first;
+    while (curr_a != nullptr) {
+        result.AddTerm(curr_a->coef, curr_a->exp);
+        curr_a = curr_a->next;
+    }
+
+    // 2. 複製並加入 b 的所有項
+    Term* curr_b = b.first;
+    while (curr_b != nullptr) {
+        result.AddTerm(curr_b->coef, curr_b->exp);
+        curr_b = curr_b->next;
+    }
+
+    return result; // 回傳這個全新相加後的多項式
+}
